@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resolución de Ecuaciones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Resolver ecuación lineal</h1>
+  <p>Forma: ax + b = 0</p>
+  <input type="number" id="a" placeholder="Valor de a">
+  <input type="number" id="b" placeholder="Valor de b">
+  <button onclick="resolver()">Resolver</button>
+  <p id="resultado"></p>
+
+  <script>
+    function resolver() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      let resultado = '';
+
+      if (a === 0 && b === 0) {
+        resultado = 'La ecuación tiene infinitas soluciones.';
+      } else if (a === 0) {
+        resultado = 'La ecuación no tiene solución.';
+      } else {
+        const x = -b / a;
+        resultado = `La solución es x = ${x}`;
+      }
+
+      document.getElementById('resultado').textContent = resultado;
+    }
+  </script>
+</body>
+</html>
